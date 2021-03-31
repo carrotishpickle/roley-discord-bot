@@ -3,6 +3,14 @@ const config = require('./configfiles/config.json');
 const client = new Discord.Client();
 const fs = require('fs').promises;
 
+function login() {
+  client.login(config.token);
+};
+
+function commandConfirm() {
+  console.log('Command operation completed succesfully');
+};
+
 client.once('ready', () => {
 	console.log('Ready!');
 });
@@ -37,4 +45,5 @@ client.on('message', message => {
   }
 })
 login();
-// Start the bot with "node ." or "node bot.js"
+
+// Start the bot with "node ." or "node bot.js
