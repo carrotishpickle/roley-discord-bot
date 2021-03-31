@@ -12,6 +12,4 @@ out. Give it a try when it rolls out to you. *It's worth it.*
 ## List of commands  
 =ping | Responds with *Pong!*
 *****  
-**The bot is available [here](https://discord.com/api/oauth2/authorize?client_id=819960497260200047&permissions=402992240&scope=bot). It has very basic functionality right now, but by adding it to your server you support Roley.**
-*****  
 *If you encounter any issues with Roley, open an issue.*
