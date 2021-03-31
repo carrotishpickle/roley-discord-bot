@@ -4,9 +4,9 @@
 A universal Discord bot.
 *****
 ## List of commands  
-=ping | Responds with *Pong!*
-=time | Responds with current time
-=permainvite |Responds with a permanent invite to your server
-=uid  | Responds with your unique ID
+=ping | Responds with *Pong!*  
+=time | Responds with current time  
+=permainvite |Responds with a permanent invite to your server  
+=uid  | Responds with your unique ID  
 *****  
 *If you encounter any issues with Roley, open an issue.*
