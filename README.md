@@ -7,6 +7,6 @@ A universal Discord bot.
 =ping | Responds with *Pong!*  
 =time | Responds with current time  
 =permainvite |Responds with a permanent invite to your server  
-=uid  | Responds with your unique ID  
+=id  | Responds with your unique ID  
 *****  
 *If you encounter any issues with Roley, open an issue.*
