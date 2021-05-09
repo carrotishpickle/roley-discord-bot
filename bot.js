@@ -9,10 +9,12 @@ function login() {
   client.login(config.token);
 };
 
-function commandConfirm() {
-  console.log('Command operation completed succesfully');
+function commandConfirm( command, auid ) {
+  console.log('Command operation, specifically' + ' ' + command + ' ' + 'completed succesfully, ran by user' + ' ' + auid);
 };
+
 // <= Function defining
+
 client.once('ready', () => {
 	console.log('Ready!');
 });
@@ -20,71 +22,29 @@ client.once('ready', () => {
 client.on('message', message => {
 	if (message.content === config.prefix + 'ping') {
 		message.channel.send('Pong!');
-		commandConfirm();
+		commandConfirm('Ping Pong', message.author.id);
 	}
 });
 
-// KARLSON STATS >>>>>
-/* client.on('message', message => {
-	if (!message.content.startsWith(config.prefix) || message.author.bot) return;
-
-	const args = message.content.slice(prefix.length).trim().split(/ +/);
-	const command = args.shift().toLowerCase();
-
-  if (command === )
-*/
 client.on('message', message => {
 	if (message.content === config.prefix + 'time') {
 		var currentTime;
 		currentTime = Date();
 		message.channel.send('The current time is' + ' ' + currentTime);
-		commandConfirm();
+		commandConfirm('Date display', message.author.id);
 	}
 });
 
+// 
 client.on('message', message => {
 	if (message.content === config.prefix + 'id') {
-		var authorID;
-		authorID = message.author.id;
-		message.channel.send('Your UID is' + ' ' + authorID);
-		commandConfirm();
+		message.channel.send('Your UID is' + ' ' + message.author.id);
+		commandConfirm('UID display', message.author.id);
 	}
-});
-
-client.on('message', message => {
-  if (message.content === config.prefix + 'permainvite') {
-    message.channel.send(config.permaInvite);
-    commandConfirm();
-  }
-});
-
-client.on('message', message => {
-  if (message.content === config.prefix + 'uid') {
-    message.channel.send(message.author.id);
-    commandConfirm();
-  }
-});
-
-function ondraAuthorCheck() {
-	
-};
-
-client.on('message', message => {
-	if (message.content === config.prefix + 'killbot') {
-		messageContents = message;
-
-		var killcmdAuthorID;
-		var ondraAuthor;
-	
-		killcmdAuthorID = message.author.id;
-
-		ondraAuthor = killcmdAuthorID.includes(config.ondraID);
-		
-		if (ondraAuthor === true) {
-			message.channel.send('Attempting to send kill PID to NodeJS...');
-			console.log('Attempting to send kill PID to NodeJS...');
+	else if (message.content === config.prefix + 'uid') {
+		message.channel.send('Your UID is' + ' ' + message.author.id);
+		commandConfirm('UID display', message.author.id);
 	};
-};
 });
 
 login();
