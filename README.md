@@ -10,3 +10,5 @@ A universal Discord bot.
 =id  | Responds with your unique ID  
 *****  
 *If you encounter any issues with Roley, open an issue.*
+
+### DO NOT TOUCH ./node_modules, IT IS ESSENTIAL FOR THE BOT
