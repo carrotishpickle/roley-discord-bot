@@ -4,6 +4,8 @@ const stats = require('./configfiles/KARLSON/STATS/ondrodrak.json');
 const client = new Discord.Client();
 const fs = require('fs').promises;
 
+bot();
+function bot() {
 // Function defining =>
 function thE( error ) {
 	throw new Error(error);
@@ -55,7 +57,6 @@ client.on('message', message => {
 	};
 });
 
-
 // KILL COMMAND - DOESN'T WORK PROPERLY, UNSTABLE!
 client.on('message', message => {
 	if (message.content === config.prefix + 'killbot') {
@@ -77,6 +78,15 @@ client.on('message', message => {
 };
 });
 
-login();
+// WORD FILTER BETA
+client.on('message', message => {
+	var includeAnalyseVar;
+	includeAnalyseVar = message.content;
+	if (includeAnalyseVar.includes('frick')) {
+		message.content.delete;
+	}
+})
 
+login();
+}
 // Start the bot with "node ." or "node bot.js"
