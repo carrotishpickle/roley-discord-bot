@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/carrotishpickle/roley-discord-bot#readme",
   "dependencies": {
+    "bufferutil": "^4.0.3",
     "discord.js": "^12.5.1",
     "vim": "^0.1.0"
   }

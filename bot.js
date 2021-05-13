@@ -6,6 +6,7 @@ const fs = require('fs').promises;
 
 bot();
 function bot() {
+// ON START >>>
 // Function defining =>
 function thE( error ) {
 	throw new Error(error);
@@ -24,10 +25,17 @@ function commandConfirm( command, auid ) {
 client.once('ready', () => {
 	console.log('Ready!');
 });
+// <<< ON START
 
 client.once('ready', () => {
     client.user.setActivity('with my human friends',{type: 'PLAYING'});
 });
+
+client.on('message', message => {
+	if (message.content === config.prefix + 'help') {
+		message.reply('Seznam příkazů: \n **=help**, vrátí všechny možné příkazy. \n **=ping**, vrátí odpověď "Pong!" \n **=time**, vrátí čas a datum \n **=uid** nebo **=id**, vrátí tvé uživatelské Discord ID \n **=pinvite**, vrátí stálý invite link do serveru \n **=killbot**, ukončí bota, **pouze pro majitele bota** \n *aktuální prefix je' + ' ' + config.prefix + '.')
+	}
+})
 
 client.on('message', message => {
 	if (message.content === config.prefix + 'ping') {
@@ -56,8 +64,14 @@ client.on('message', message => {
 		commandConfirm('UID display', message.author.id);
 	};
 });
+// PERMA INVITE
+client.on('message', message => {
+	if (message.content === config.prefix + 'pinvite') {
+		message.channel.send(config.permaInvite);
+	};
+});
 
-// KILL COMMAND - DOESN'T WORK PROPERLY, UNSTABLE!
+// KILL COMMAND
 client.on('message', message => {
 	if (message.content === config.prefix + 'killbot') {
 		messageContents = message;
@@ -78,6 +92,29 @@ client.on('message', message => {
 };
 });
 
+/*
+client.on('message', message => {
+	if (!message.content.startsWith(config.prefix) || message.author.bot) return;
+
+	const args = message.content.slice(config.prefix.length).trim().split(' ');
+	const command = args.shift().toLowerCase();
+	
+	if (command === 'ping') {
+		message.channel.send('Pong.');
+	} else if (command === 'args-info') {
+		if (!args.length) {
+			return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
+		} else if (args[0] === 'foo') {
+			return message.channel.send('bar');
+		}
+
+		message.channel.send(`First argument: ${args[0]}`);
+	}
+});
+
+*/
+
+/*
 // WORD FILTER BETA
 client.on('message', message => {
 	var includeAnalyseVar;
@@ -85,7 +122,8 @@ client.on('message', message => {
 	if (includeAnalyseVar.includes('frick')) {
 		message.content.delete;
 	}
-})
+});
+*/
 
 login();
 }
