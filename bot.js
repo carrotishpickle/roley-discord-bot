@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const config = require('./configfiles/config.json');
-const stats = require('./configfiles/KARLSON/STATS/ondrodrak.json');
 const client = new Discord.Client();
 const fs = require('fs').promises;
 
@@ -14,11 +13,11 @@ function thE( error ) {
 
 function login() {
   client.login(config.token);
-};
+}
 
 function commandConfirm( command, auid ) {
   console.log('Command operation, specifically' + ' ' + command + ' ' + 'completed succesfully, ran by user' + ' ' + auid);
-};
+}
 
 // <= Function defining
 
@@ -62,7 +61,7 @@ client.on('message', message => {
 	else if (message.content === config.prefix + 'uid') {
 		message.channel.send('Your UID is' + ' ' + message.author.id);
 		commandConfirm('UID display', message.author.id);
-	};
+	}
 });
 // PERMA INVITE
 client.on('message', message => {
@@ -90,6 +89,7 @@ client.on('message', message => {
 			thE( 'Bot killed' );
 	};
 };
+
 });
 
 /*
