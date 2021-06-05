@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const config = require('./configfiles/config.json');
-const stats = require('./configfiles/KARLSON/STATS/ondrodrak.json');
 const client = new Discord.Client();
 const fs = require('fs').promises;
 
@@ -90,6 +89,7 @@ client.on('message', message => {
 			thE( 'Bot killed' );
 	};
 };
+
 });
 
 /*
