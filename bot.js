@@ -42,7 +42,7 @@ client.on('message', message => {
 
 client.on('message', message => {
 	if (message.content === config.prefix + 'pinvite') {
-		message.channel.send('Toto je stálý invite link, @<' + message.author.id + '>:\n' + config.permaInvite);
+		message.channel.send('Toto je stálý invite link, <@' + message.author.id + '>:\n' + config.permaInvite);
 	};
 });
 
