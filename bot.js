@@ -4,11 +4,8 @@ const stats = require('./configfiles/KARLSON/STATS/ondrodrak.json');
 const client = new Discord.Client();
 const fs = require('fs').promises;
 
-bot();
-function bot() {
-// ON START >>>
 // Function defining =>
-function thE( error ) {
+function killBot( error ) {
 	throw new Error(error);
 }
 
@@ -35,7 +32,14 @@ client.on('message', message => {
 	if (message.content === config.prefix + 'help') {
 		message.reply('Seznam příkazů: \n **=help**, vrátí všechny možné příkazy. \n **=ping**, vrátí odpověď "Pong!" \n **=time**, vrátí čas a datum \n **=uid** nebo **=id**, vrátí tvé uživatelské Discord ID \n **=pinvite**, vrátí stálý invite link do serveru \n **=killbot**, ukončí bota, **pouze pro majitele bota** \n *aktuální prefix je' + ' ' + config.prefix + '.')
 	}
-})
+});
+
+
+client.on('message', message => {
+	if (message.content === config.prefix + 'github') {
+		message.reply('GitHub Repo najdeš na\n' + config.repo + ' ' + 'a **BETA** branch najdeš na\n' + config.repobeta);
+	}
+});
 
 client.on('message', message => {
 	if (message.content === config.prefix + 'pinvite') {
@@ -88,7 +92,7 @@ client.on('message', message => {
 			message.channel.send('Attempting to send kill PID to NodeJS...');
 			console.log('Attempting to send kill PID to NodeJS...');
 			commandConfirm('Bot kill command', message.author.id);
-			thE( 'Bot killed' );
+			killBot( 'Bot killed' );
 	};
 };
 });
