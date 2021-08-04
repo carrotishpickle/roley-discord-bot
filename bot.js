@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const config = require('./configfiles/config.json');
 const client = new Discord.Client();
-const fs = require('fs').promises;
+const botStatus = require('./scripts/status.js')
 
 // Function defining =>
 function killBot( error ) {
@@ -23,9 +23,7 @@ client.once('ready', () => {
 });
 // <<< ON START
 
-client.once('ready', () => {
-    client.user.setActivity('with my human friends',{type: 'PLAYING'});
-});
+botStatus('with my friends :3', 'PLAYING');
 
 client.on('message', message => {
 	if (message.content === config.prefix + 'help') {
