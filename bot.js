@@ -113,38 +113,5 @@ client.on('message', message => {
 	}
 });
 
-/*
-client.on('message', message => {
-	if (!message.content.startsWith(config.prefix) || message.author.bot) return;
-
-	const args = message.content.slice(config.prefix.length).trim().split(' ');
-	const command = args.shift().toLowerCase();
-
-	if (command === 'ping') {
-		message.channel.send('Pong.');
-	} else if (command === 'args-info') {
-		if (!args.length) {
-			return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
-		} else if (args[0] === 'foo') {
-			return message.channel.send('bar');
-		}
-
-		message.channel.send(`First argument: ${args[0]}`);
-	}
-});
-
-*/
-
-/*
-// WORD FILTER BETA
-client.on('message', message => {
-	var includeAnalyseVar;
-	includeAnalyseVar = message.content;
-	if (includeAnalyseVar.includes('frick')) {
-		message.content.delete;
-	}
-});
-*/
-
 login();
 // Start the bot with "node ." or "node bot.js"
