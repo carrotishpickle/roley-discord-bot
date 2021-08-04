@@ -25,6 +25,14 @@ client.once('ready', () => {
 
 botStatus('with my friends :3', 'PLAYING');
 
+// Word filter =>
+client.on(message, message => {
+    if (message.content.includes('frick')) {
+        message.channel.send('Hej' + ' ' + '<@' + message.author.id + '>' + ', ' + 'to nemůžeš říkat!')
+    }
+});
+// <= Word filter
+
 client.on('message', message => {
 	if (message.content === config.prefix + 'help') {
 		message.reply('Seznam příkazů: \n **=help**, vrátí všechny možné příkazy. \n **=ping**, vrátí odpověď "Pong!" \n **=time**, vrátí čas a datum \n **=uid** nebo **=id**, vrátí tvé uživatelské Discord ID \n **=pinvite**, vrátí stálý invite link do serveru \n **=killbot**, ukončí bota, **pouze pro majitele bota** \n *aktuální prefix je' + ' ' + config.prefix + '.')
