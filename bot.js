@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const config = require('./configfiles/config.json');
 const client = new Discord.Client();
-const botStatus = require('./scripts/status.js')
 
 // Function defining =>
 function killBot( error ) {
@@ -16,14 +15,22 @@ function commandConfirm( command, auid ) {
   console.log('Command operation, specifically' + ' ' + command + ' ' + 'completed succesfully, ran by user' + ' ' + auid);
 }
 
+function botStatus(statusText, type) { // PLAYING, STREAMING, LISTENING
+    client.once('ready', () => {
+        client.user.setActivity(statusText,{type: type});
+    });    
+} 
+
+function invCommand() {
+	message.channel.send('Neplatný příkaz' + ' ' + '<@' + message.author.id + '>' + '!');
+	console.log(message.author.id + 'poslal neplatný příkaz v kanále' + ' #' + message.channel);
+}
 // <= Function defining
 
 client.once('ready', () => {
 	console.log('Ready!');
 });
 // <<< ON START
-
-botStatus('with my friends :3', 'PLAYING');
 
 // Word filter =>
 client.on(message, message => {
